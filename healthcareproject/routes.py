@@ -5,6 +5,12 @@ import pandas as pd
 import random
 import pickle
 import requests
+import nltk
+
+# Download the required NLTK resources
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from flask import send_from_directory
@@ -427,4 +433,3 @@ def reset_token(token):
         flash("Your Password is reset !", 'success')
         return redirect(url_for('login')) 
     return render_template('reset_token.html',form=form)
-
